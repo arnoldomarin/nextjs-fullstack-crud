@@ -5,7 +5,9 @@ import {
 } from "@/components/ui/card"
 
 async function getNotes(): Promise<any[]> {
-    const rest = await fetch('http://127.0.0.1:8090/api/collections/notes/records');
+    const rest = await fetch('http://127.0.0.1:8090/api/collections/notes/records', 
+        { cache: 'no-store'}
+    );
     const data = await rest.json();
     return data?.items as any[];
 }
